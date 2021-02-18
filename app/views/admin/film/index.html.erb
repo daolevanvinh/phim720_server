@@ -1,0 +1,60 @@
+<div class="row">
+  <div class="v-form-control">
+    <div class="action">
+      <div class="action__title">
+        <span>Danh sach phim</span>
+      </div>
+      <div class="action__control">
+        <%= link_to new_admin_film_path, :class => "btn btn-primary btn-sm" do %>
+          <svg class="icon--button">
+            <use xlink:href="<%= asset_path('sprite.svg#icon-plus') %>"></use>
+          </svg>
+          &nbsp;<span>Thêm mới</span>
+        <% end %>
+
+        <%= link_to admin_film_index_path, :class => "btn btn-warning btn-sm" do %>
+          <svg class="icon--button">
+            <use xlink:href="<%= asset_path('sprite.svg#icon-spinner11') %>"></use>
+          </svg>
+          &nbsp;<span>Tải lại</span>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="v-table-container">
+      <table class="table table-sm text-center v-table-film">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Tên phim</th>
+          <th>Last Update</th>
+          <th>Control</th>
+        </tr>
+        <tbody class="table-striped">
+        <% @films.each do |film| %>
+          <tr>
+            <td><%= film.id %></td>
+            <td><%= film.name %></td>
+            <td><%= film.updated_at %></td>
+            <td>
+              <%= link_to crawl_admin_film_path(film), :title => "Update" do %>
+                <svg class="icon--button">
+                  <use xlink:href="<%= asset_path('sprite.svg#icon-pencil') %>"></use>
+                </svg>
+              <% end %>
+              <%= link_to admin_film_index_path, :title => "Chi tiết" do %>
+                <svg class="icon--button">
+                  <use xlink:href="<%= asset_path('sprite.svg#icon-eye') %>"></use>
+                </svg>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+        </thead>
+      </table>
+      <%= paginate @films %>
+    </div>
+
+  </div>
+</div>
