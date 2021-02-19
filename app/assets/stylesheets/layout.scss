@@ -164,4 +164,30 @@ html, body {
     background-color: red;
   }
 }
+.pagination {
+  span {
+    position: relative;
+    padding: .5rem .75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: #007bff;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    text-decoration: none;
 
+    &:hover {
+      background-color: #e9ecef;
+      text-decoration: none;
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--color-primary);
+      font-weight: 500;
+    }
+
+    &.current {
+      color: #6c757d;
+    }
+  }
+}

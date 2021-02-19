@@ -18,6 +18,13 @@
           </svg>
           &nbsp;<span>Tải lại</span>
         <% end %>
+
+        <%= link_to crawl_all_admin_film_index_path, :class => "btn btn-info btn-sm" do %>
+          <svg class="icon--button">
+            <use xlink:href="<%= asset_path('sprite.svg#icon-copy') %>"></use>
+          </svg>
+          &nbsp;<span>Crawl VuiGhe</span>
+        <% end %>
       </div>
     </div>
 

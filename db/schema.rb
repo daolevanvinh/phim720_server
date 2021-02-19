@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_18_082654) do
+ActiveRecord::Schema.define(version: 2021_02_19_033427) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,14 +42,14 @@ ActiveRecord::Schema.define(version: 2021_02_18_082654) do
 
   create_table "episodes", force: :cascade do |t|
     t.string "title"
-    t.string "index"
+    t.integer "index"
     t.bigint "views"
     t.string "max_resolution"
     t.bigint "season_id"
     t.string "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "links"
+    t.string "link"
   end
 
   create_table "film_genres", force: :cascade do |t|
@@ -59,13 +59,15 @@ ActiveRecord::Schema.define(version: 2021_02_18_082654) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "film", force: :cascade do |t|
+  create_table "films", force: :cascade do |t|
     t.string "name"
     t.string "description"
     t.bigint "likes"
     t.bigint "follows"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "thumbnail"
+    t.string "crawl_link"
   end
 
   create_table "genres", force: :cascade do |t|
@@ -95,7 +97,7 @@ ActiveRecord::Schema.define(version: 2021_02_18_082654) do
 
   add_foreign_key "comments", "comments"
   add_foreign_key "episodes", "seasons"
-  add_foreign_key "film_genres", "film"
+  add_foreign_key "film_genres", "films"
   add_foreign_key "film_genres", "genres"
-  add_foreign_key "seasons", "film"
+  add_foreign_key "seasons", "films"
 end

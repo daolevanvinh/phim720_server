@@ -17,6 +17,10 @@ Rails.application.routes.draw do
       member do
         get 'crawl', to: 'film#crawl'
       end
+
+      collection do
+        get 'crawl_all', to: 'film#crawl_all'
+      end
     end
 
   end
